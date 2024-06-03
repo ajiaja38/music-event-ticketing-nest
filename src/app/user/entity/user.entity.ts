@@ -1,12 +1,6 @@
 import { Ticket } from 'src/app/ticket/entity/ticket.entity';
-import {
-  BeforeInsert,
-  Column,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { v4 as uuidv4 } from 'uuid';
+import { ERole } from 'src/utils/enum/ERole.enum';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
   name: 'mst_user',
@@ -16,7 +10,7 @@ export class User {
   id: string;
 
   @Column()
-  firstName: string;
+  name: string;
 
   @Column({
     unique: true,
@@ -26,14 +20,14 @@ export class User {
   @Column()
   password: string;
 
+  @Column({
+    enum: ERole,
+  })
+  role: ERole;
+
   @Column({ default: true })
   isActive: boolean;
 
   @OneToMany(() => Ticket, (ticket) => ticket.user)
   tickets: Ticket[];
-
-  @BeforeInsert()
-  addPrefixToId() {
-    this.id = `user-${uuidv4()}`;
-  }
 }

@@ -20,7 +20,7 @@ export class Ticket {
   })
   code: string;
 
-  @ManyToOne(() => User, (user) => user.tickets)
+  @ManyToOne(() => User, (user) => user.tickets, { onDelete: 'CASCADE' })
   user: User;
 
   @BeforeInsert()
