@@ -1,4 +1,4 @@
-import { Ticket } from 'src/app/ticket/entity/ticket.entity';
+import { EventTrx } from 'src/app/event-transaction/entity/eventTrx.entity';
 import { ERole } from 'src/utils/enum/ERole.enum';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -39,6 +39,6 @@ export class User {
   @Column()
   updatedAt: Date;
 
-  @OneToMany(() => Ticket, (ticket) => ticket.user)
-  tickets: Ticket[];
+  @OneToMany(() => EventTrx, (eventTrx) => eventTrx.user)
+  eventTrxs: EventTrx[];
 }

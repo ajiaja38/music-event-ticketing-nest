@@ -1,5 +1,12 @@
 import { Event } from 'src/app/event/entity/event.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Ticket } from 'src/app/ticket/entity/ticket.entity';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({
   name: 'mst_category',
@@ -12,10 +19,10 @@ export class Category {
   name: string;
 
   @Column()
-  qty: number;
+  price: number;
 
   @Column()
-  price: number;
+  quota: number;
 
   @Column()
   createdAt: Date;
@@ -25,4 +32,7 @@ export class Category {
 
   @ManyToOne(() => Event, (event) => event.categories)
   event: Event;
+
+  @OneToMany(() => Ticket, (ticket) => ticket.category)
+  tickets: Ticket[];
 }

@@ -1,9 +1,10 @@
-import { User } from 'src/app/user/entity/user.entity';
+import { Category } from 'src/app/category/entity/category.entity';
+import { EventTrxDetail } from 'src/app/event-transaction-detail/entity/eventTrxDetail.entity';
 import { ETransactionStatus } from 'src/utils/enum/ETransaction.enum';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
-  name: 'trx_tickets',
+  name: 'mst_tickets',
 })
 export class Ticket {
   @PrimaryGeneratedColumn('uuid')
@@ -18,6 +19,7 @@ export class Ticket {
     type: 'enum',
     enum: ETransactionStatus,
     enumName: 'ETransactionStatus',
+    default: ETransactionStatus.UNPAID,
   })
   status: ETransactionStatus;
 
@@ -27,6 +29,9 @@ export class Ticket {
   @Column()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.tickets, { onDelete: 'CASCADE' })
-  user: User;
+  @ManyToOne(() => Category, (category) => category.tickets)
+  category: Category;
+
+  @ManyToOne(() => EventTrxDetail, (eventTrxDetail) => eventTrxDetail.tickets)
+  eventTrxDetail: EventTrxDetail;
 }

@@ -5,5 +5,4 @@ export interface IUserDetail {
   name: string;
   email: string;
   role: ERole;
-  tickets: { id: string; code: string }[];
 }

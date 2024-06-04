@@ -41,7 +41,7 @@ export class Event {
   updatedAt: Date;
 
   @OneToMany(() => Category, (category) => category.event, {
-    cascade: true,
+    onDelete: 'CASCADE',
   })
   categories: Category[];
 }
