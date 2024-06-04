@@ -15,6 +15,7 @@ import { EventModule } from './app/event/event.module';
 import { CategoryModule } from './app/category/category.module';
 import { AuthModule } from './app/auth/auth.module';
 import { TimezoneModule } from './app/timezone/timezone.module';
+import { UploaderModule } from './app/uploader/uploader.module';
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import { TimezoneModule } from './app/timezone/timezone.module';
     CategoryModule,
     AuthModule,
     TimezoneModule,
+    UploaderModule,
   ],
   controllers: [AppController],
   providers: [

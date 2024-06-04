@@ -1,4 +1,5 @@
 import { User } from 'src/app/user/entity/user.entity';
+import { ETransactionStatus } from 'src/utils/enum/ETransaction.enum';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
@@ -12,6 +13,13 @@ export class Ticket {
     unique: true,
   })
   code: string;
+
+  @Column({
+    type: 'enum',
+    enum: ETransactionStatus,
+    enumName: 'ETransactionStatus',
+  })
+  status: ETransactionStatus;
 
   @Column()
   createdAt: Date;

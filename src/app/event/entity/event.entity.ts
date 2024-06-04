@@ -10,11 +10,13 @@ export class Event {
 
   @Column({
     nullable: false,
+    type: 'varchar',
   })
   name: string;
 
   @Column({
     nullable: false,
+    type: Date,
   })
   time: Date;
 
@@ -23,10 +25,19 @@ export class Event {
   })
   place: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+  })
+  banner: string;
+
+  @Column({
+    type: 'date',
+  })
   createdAt: Date;
 
-  @Column()
+  @Column({
+    type: 'date',
+  })
   updatedAt: Date;
 
   @OneToMany(() => Category, (category) => category.event, {
