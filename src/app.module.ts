@@ -13,6 +13,8 @@ import { MessageModule } from './app/message/message.module';
 import { TicketModule } from './app/ticket/ticket.module';
 import { EventModule } from './app/event/event.module';
 import { CategoryModule } from './app/category/category.module';
+import { AuthModule } from './app/auth/auth.module';
+import { TimezoneModule } from './app/timezone/timezone.module';
 
 @Module({
   imports: [
@@ -47,6 +49,8 @@ import { CategoryModule } from './app/category/category.module';
     TicketModule,
     EventModule,
     CategoryModule,
+    AuthModule,
+    TimezoneModule,
   ],
   controllers: [AppController],
   providers: [
