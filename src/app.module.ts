@@ -11,6 +11,8 @@ import { ExceptionFilter } from './filter/exception.filter';
 import { ResponseInterceptor } from './interceptors/response.interceptor';
 import { MessageModule } from './app/message/message.module';
 import { TicketModule } from './app/ticket/ticket.module';
+import { EventModule } from './app/event/event.module';
+import { CategoryModule } from './app/category/category.module';
 
 @Module({
   imports: [
@@ -43,6 +45,8 @@ import { TicketModule } from './app/ticket/ticket.module';
     UserModule,
     MessageModule,
     TicketModule,
+    EventModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [

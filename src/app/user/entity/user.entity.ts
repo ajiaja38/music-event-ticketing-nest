@@ -9,15 +9,20 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   name: string;
 
   @Column({
     unique: true,
+    nullable: false,
   })
   email: string;
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   password: string;
 
   @Column({
@@ -27,6 +32,12 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @Column()
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
 
   @OneToMany(() => Ticket, (ticket) => ticket.user)
   tickets: Ticket[];

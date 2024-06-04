@@ -1,12 +1,5 @@
 import { User } from 'src/app/user/entity/user.entity';
-import {
-  BeforeInsert,
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { v4 as uuidv4 } from 'uuid';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
   name: 'trx_tickets',
@@ -20,11 +13,12 @@ export class Ticket {
   })
   code: string;
 
+  @Column()
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
+
   @ManyToOne(() => User, (user) => user.tickets, { onDelete: 'CASCADE' })
   user: User;
-
-  @BeforeInsert()
-  addPrefixToId() {
-    this.id = `ticket-${uuidv4()}`;
-  }
 }
