@@ -6,6 +6,7 @@ import {
 } from '@nestjs/platform-fastify';
 import fastifyHelmet from '@fastify/helmet';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import multiPart from '@fastify/multipart';
 
 async function bootstrap() {
   const port: string | number = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ async function bootstrap() {
     },
   );
 
+  app.register(multiPart);
   app.register(fastifyHelmet, {
     contentSecurityPolicy: false,
     xssFilter: true,

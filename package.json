@@ -20,7 +20,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.590.0",
     "@fastify/helmet": "^11.1.1",
+    "@fastify/multipart": "^8.2.0",
     "@nestjs/cache-manager": "^2.2.2",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.2.2",
@@ -37,6 +39,7 @@
     "cache-manager-redis-yet": "^5.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "fastify-file-interceptor": "^1.0.9",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.11.5",
